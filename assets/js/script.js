@@ -212,10 +212,10 @@ var completeEditTask = function(taskName, taskType, taskId) {
         }
     };
 
-    alert("Task Updated.");
-
-    // save to local storage 
+    // save to local storage
     saveTasks();
+
+    alert("Task Updated.");
 
     formEl.removeAttribute("data-task-id");
     document.querySelector("#save-task").textContent = "Add Task";
@@ -264,14 +264,14 @@ var loadTasks = function(){
     savedTasks = JSON.parse(savedTasks);
 
     // loop through savedTasks array 
-    for (var i = 0; i < saveTasks.length; i++){
+    for (var i = 0; i < savedTasks.length; i++){
         //pass each task object into the createtaskEl function
-        createTaskEl(saveTasks[i]);
+        createTaskEl(savedTasks[i]);
     }
 };    
+
+loadTasks();
 
 pageContentEl.addEventListener("click", taskButtonHandler);
 
 pageContentEl.addEventListener("change", taskStatusChangeHandler);
-
-loadTasks();
